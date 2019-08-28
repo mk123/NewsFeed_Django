@@ -7,7 +7,7 @@ from mainsite.models import Article, ArticleCategory
 def index(request):
 	articles = Article.objects.all().order_by('-id')[0:10]
 	categories = ArticleCategory.objects.all()
-	page = loader.get_template("polls/index.html")
+	page = loader.get_template("mainsite/index.html")
 	context = {
 	"articles": articles,
 	"categories": categories,
@@ -19,7 +19,7 @@ def news_for_category(request, category_id):
 	category = ArticleCategory.objects.get(id=category_id)
 	articles = Article.objects.filter(category=category)
 	categories = ArticleCategory.objects.all()
-	page = loader.get_template("polls/index.html")
+	page = loader.get_template("mainsite/index.html")
 	context = {
 	"articles": articles,
 	"categories": categories,
